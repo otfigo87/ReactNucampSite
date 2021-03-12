@@ -29,13 +29,29 @@ class Main extends Component {
           campsite={
             this.state.campsites.filter((campsite) => campsite.featured)[0]
           }
-          promotions={
+          promotion={
             this.state.promotions.filter((promotion) => promotion.featured)[0]
           }
           partner={this.state.partners.filter((partner) => partner.featured)[0]}
         />
       );
     };
+
+    const CampsiteWithId = ({ match }) => {
+      return (
+        <CampsiteInfo
+          campsite={
+            this.state.campsites.filter(
+              (campsite) => campsite.id === +match.params.campsiteId
+            )[0]
+          }
+          comment={this.state.comments.filter(
+            (comment) => comment.campsiteId === +match.params.campsiteId
+          )}
+        />
+      );
+    };
+
     return (
       <div>
         <Header />
@@ -45,6 +61,7 @@ class Main extends Component {
             path="/directory"
             render={() => <Directory campsites={this.state.campsites} />}
           />
+          <Route path="/directory/:campsiteId" component={CampsiteWithId} />
           <Route exact path="/contactus" component={Contact} />
           <Redirect to="/home" />
         </Switch>
