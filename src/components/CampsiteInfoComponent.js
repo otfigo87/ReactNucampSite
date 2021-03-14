@@ -5,7 +5,7 @@ import {
   CardText,
   CardBody,
   Breadcrumb,
-  BreadcrumbItem,
+  BreadcrumbItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -28,13 +28,12 @@ import { Link } from "react-router-dom";
       return (
         <div className="col-md-5 m-1">
           <h4>Comments</h4>
-          {comments.map((comment) => {
+          {comments.map(comment => {
             return (
               <div key={comment.id}>
                 <p>
                   {comment.text} <br />
-                  {comment.author}
-                  <br />
+                  -- {comment.author}, 
                   {new Intl.DateTimeFormat("en-US", {
                     year: "numeric",
                     month: "short",
