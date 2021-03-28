@@ -115,7 +115,7 @@ class Main extends Component {
               />
               <Route
                 exact
-                path="/about"
+                path="/aboutus"
                 render={() => <About partners={this.props.partners} />}
               />
               <Redirect to="/home" />
